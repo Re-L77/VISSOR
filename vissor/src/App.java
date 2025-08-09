@@ -7,17 +7,21 @@ import javafx.stage.Stage;
 public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
-    try {
-        Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
-        Scene scene = new Scene(root);
-        
-        primaryStage.setTitle("VISSOR");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    } catch(Exception e) {
-        e.printStackTrace();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
+            Scene scene = new Scene(root);
+
+            primaryStage.setTitle("VISSOR");
+            primaryStage.setScene(scene);
+            primaryStage.setMinHeight(720);
+            primaryStage.setMinWidth(1080);
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-}
+
     public static void main(String[] args) {
         launch();
     }
