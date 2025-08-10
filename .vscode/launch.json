@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TestBD",
+      "request": "launch",
+      "mainClass": "admin.bd.TestBD",
+      "projectName": "VISSOR_53184f7f"
+    },
+    {
+      "type": "java",
       "name": "App",
       "request": "launch",
       "mainClass": "${file}",
