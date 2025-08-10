@@ -115,14 +115,14 @@
                   <Insets />
                </opaqueInsets>
             </TableView>
-            <Label id="userRoles" layoutX="23.0" layoutY="26.0" text="2">
+            <Label layoutX="23.0" layoutY="26.0" text="2">
                <font>
                   <Font name="Segoe UI Italic" size="28.0" />
                </font>
             </Label>
          </children>
       </Pane>
-   <Pane fx:id="usersRoles" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
+   <Pane id="userRoles" fx:id="usersRoles" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
          <children>
             <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
                <columns>

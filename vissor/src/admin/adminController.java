@@ -3,10 +3,13 @@ package admin;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import admin.bd.Users;
 import analyst.Analyst;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
@@ -30,6 +33,22 @@ public class adminController {
     private Pane usersRoles;
     @FXML
     private MenuButton menuButton;
+
+    @FXML
+    private TableView<Users> tableViewUsuarios;
+
+    @FXML
+    private TableColumn<Users, Integer> columnaID;
+    @FXML
+    private TableColumn<Users, String> columnaNombre;
+    @FXML
+    private TableColumn<Users, String> columnaCorreo;
+    @FXML
+    private TableColumn<Users, String> columnaContrasena;
+    @FXML
+    private TableColumn<Users, Integer> columnaIDRol;
+    @FXML
+    private TableColumn<Users, String> columnaActivo;
 
     @FXML
     private void mostrarUsers(ActionEvent event) {

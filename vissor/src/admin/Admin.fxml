@@ -70,19 +70,15 @@
       </Pane>
    <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;">
          <children>
-            <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
+            <TableView fx:id="tableViewUsuarios" layoutX="21.0" layoutY="87.0" prefHeight="541.0" prefWidth="865.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
+                <TableColumn id="id_usuario" fx:id="id_usuario" prefWidth="40.79998779296875" text="ID" />
+                <TableColumn id="nombre" fx:id="nombre" prefWidth="157.6000213623047" text="NAME" />
+                  <TableColumn id="correo" fx:id="correo" prefWidth="178.4000244140625" text="EMAIL" />
+                  <TableColumn id="contrasena" fx:id="contrasena" minWidth="0.0" prefWidth="212.0" text="PASSWORD" />
+                  <TableColumn id="id_rol" fx:id="id_rol" prefWidth="56.0" text="ROLE" />
+                  <TableColumn id="activo" fx:id="activo" minWidth="9.5999755859375" prefWidth="56.0" text="STATUS" />
+                  <TableColumn id="creado_en" fx:id="creado_en" prefWidth="164.7999267578125" text="CREATION DATE" />
               </columns>
                <opaqueInsets>
                   <Insets />
