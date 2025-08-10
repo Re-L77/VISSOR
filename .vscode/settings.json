@@ -1,34 +1,20 @@
 {
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx.base.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx.controls.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx.fxml.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx.graphics.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx.media.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx.swing.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx.web.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\javafx-swt.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\jdk.jsobject.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\jfx.incubator.input.jar",
-    "c:\\openjfx-24.0.2_windows-x64_bin-sdk\\javafx-sdk-24.0.2\\lib\\jfx.incubator.richtext.jar",
-<<<<<<< HEAD
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.base.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.controls.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.fxml.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.graphics.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.media.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.swing.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.web.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx-swt.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\jdk.jsobject.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\jfx.incubator.input.jar",
-    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\jfx.incubator.richtext.jar"
-=======
     "vissor/lib/HikariCP-6.3.1.jar",
+    "vissor/lib/javafx.base.jar",
+    "vissor/lib/javafx.controls.jar",
+    "vissor/lib/javafx.fxml.jar",
+    "vissor/lib/javafx.graphics.jar",
+    "vissor/lib/javafx.media.jar",
+    "vissor/lib/javafx.swing.jar",
+    "vissor/lib/javafx.web.jar",
+    "vissor/lib/javafx-swt.jar",
+    "vissor/lib/jdk.jsobject.jar",
+    "vissor/lib/jfx.incubator.input.jar",
+    "vissor/lib/jfx.incubator.richtext.jar",
     "vissor/lib/mysql-connector-j-9.4.0.jar",
     "vissor/lib/slf4j-api-1.7.36.jar",
     "vissor/lib/slf4j-simple-1.7.36.jar"
->>>>>>> main
   ]
 }
