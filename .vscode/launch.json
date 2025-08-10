@@ -6,13 +6,6 @@
   "configurations": [
     {
       "type": "java",
-      "name": "App2",
-      "request": "launch",
-      "mainClass": "${file}",
-      "projectName": "VISSOR_53184f7f"
-    },
-    {
-      "type": "java",
       "name": "App1",
       "request": "launch",
       "mainClass": "${file}",
