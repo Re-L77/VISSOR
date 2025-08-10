@@ -18,7 +18,7 @@
    <children>
    <Pane layoutX="180.0" prefHeight="80.0" prefWidth="900.0" style="-fx-background-color: #1e88e5;">
          <children>
-            <Label layoutX="43.0" layoutY="21.0" text="------------------">
+            <Label layoutX="43.0" layoutY="21.0" text="TECNICO">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
