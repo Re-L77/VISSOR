@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
 import maintenanceTechnician.maintenanceTechnician;
+import operator.operator;
 // import maintenanceTechnician.maintenanceTechnician;
 import productionManager.productionManager;
 
@@ -97,10 +98,10 @@ public class adminController {
                     maintenanceTechnician maintenanceTechnician = new maintenanceTechnician();
                     maintenanceTechnician.start(new Stage());
                     break;
-                // case "Operator":
-                // operator operator = new operator();
-                // operator.start(new Stage());
-                // break;
+                case "Operator":
+                    operator operator = new operator();
+                    operator.start(new Stage());
+                    break;
                 default:
                     // Acción por defecto si no coincide ningún caso
                     System.out.println("No se encontró ninguna coincidencia para: " + menuText);

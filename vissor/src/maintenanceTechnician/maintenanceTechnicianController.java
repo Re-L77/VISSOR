@@ -11,6 +11,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
+import operator.operator;
 import productionManager.productionManager;
 
 public class maintenanceTechnicianController {
@@ -96,10 +97,10 @@ public class maintenanceTechnicianController {
                     maintenanceTechnician maintenanceTechnician = new maintenanceTechnician();
                     maintenanceTechnician.start(new Stage());
                     break;
-                // case "Operator":
-                // operator operator = new operator();
-                // operator.start(new Stage());
-                // break;
+                case "Operator":
+                    operator operator = new operator();
+                    operator.start(new Stage());
+                    break;
                 default:
                     // Acción por defecto si no coincide ningún caso
                     System.out.println("No se encontró ninguna coincidencia para: " + menuText);

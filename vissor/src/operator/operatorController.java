@@ -1,9 +1,10 @@
-package analyst;
+package operator;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import admin.admin;
+import analyst.Analyst;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
@@ -11,10 +12,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
 import maintenanceTechnician.maintenanceTechnician;
-import operator.operator;
 import productionManager.productionManager;
 
-public class Analyst_Controller {
+public class operatorController {
     @FXML
     private ResourceBundle resources;
 
