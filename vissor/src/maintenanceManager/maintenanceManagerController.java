@@ -1,16 +1,17 @@
-package admin;
+package maintenanceManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import admin.admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import maintenanceManager.maintenanceManager;
 import productionManager.productionManager;
 
-public class adminController {
+public class maintenanceManagerController {
     @FXML
     private ResourceBundle resources;
 
@@ -81,10 +82,10 @@ public class adminController {
                     productionManager productionManager = new productionManager();
                     productionManager.start(new Stage());
                     break;
-                case "Maintenance Manager":
-                    maintenanceManager maintenanceManager = new maintenanceManager();
-                    maintenanceManager.start(new Stage());
-                    break;
+                // case "Maintenance Manager":
+                // maintenanceManager maintenanceManager = new maintenanceManager();
+                // maintenanceManager.start(new Stage());
+                // break;
                 // case "Analyst":
                 // analyst analyst = new analyst();
                 // analyst.start(new Stage());

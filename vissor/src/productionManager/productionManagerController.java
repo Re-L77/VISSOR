@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import maintenanceManager.maintenanceManager;
 
 public class productionManagerController {
     @FXML
@@ -81,10 +82,10 @@ public class productionManagerController {
                     productionManager productionManager = new productionManager();
                     productionManager.start(new Stage());
                     break;
-                // case "Maintenance Manager":
-                // maintenanceManager maintenanceManager = new maintenanceManager();
-                // maintenanceManager.start(new Stage());
-                // break;
+                case "Maintenance Manager":
+                    maintenanceManager maintenanceManager = new maintenanceManager();
+                    maintenanceManager.start(new Stage());
+                    break;
                 // case "Analyst":
                 // analyst analyst = new analyst();
                 // analyst.start(new Stage());
