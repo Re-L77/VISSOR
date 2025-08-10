@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #e1e3e8;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #e1e3e8;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maintenanceTechnician.maintenanceTechnicianController">
    <children>
    <Pane layoutX="180.0" prefHeight="80.0" prefWidth="900.0" style="-fx-background-color: #1e88e5;">
          <children>
@@ -23,17 +23,17 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <TextField layoutX="538.0" layoutY="27.0" promptText="Search in VISSOR" />
-               <MenuButton id="users" fx:id="menuButton" layoutX="736.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Admin">
+            <TextField layoutX="565.0" layoutY="27.0" promptText="Search in VISSOR" />
+            <MenuButton id="menuButton" layoutX="736.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Maintenance Technician">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
                <items>
-                <MenuItem id="1" disable="true" mnemonicParsing="false" onAction="#cambiarPagina" text="Admin" visible="false" />
+                  <MenuItem id="1" mnemonicParsing="false" onAction="#cambiarPagina" text="Admin" />
                   <MenuItem id="2" mnemonicParsing="false" onAction="#cambiarPagina" text="Production Manager" />
-                <MenuItem id="3" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Manager" />
+                  <MenuItem id="3" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Manager" />
                   <MenuItem id="4" mnemonicParsing="false" onAction="#cambiarPagina" text="Analyst" />
-                  <MenuItem id="5" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Technician" />
+                  <MenuItem id="5" disable="true" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Technician" visible="false" />
                   <MenuItem id="6" mnemonicParsing="false" onAction="#cambiarPagina" text="Operator" />
                </items>
             </MenuButton>
@@ -46,7 +46,7 @@
                   <Image url="@images/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="27.0" layoutY="132.0" text="ADMIN" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="137.0" prefWidth="178.0" text="MAINTENANCE TECHNICIAN" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Italic" size="12.0" />
                </font>

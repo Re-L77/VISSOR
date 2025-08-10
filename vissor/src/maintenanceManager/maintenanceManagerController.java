@@ -4,11 +4,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import admin.admin;
+import analyst.Analyst;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import maintenanceTechnician.maintenanceTechnician;
 import productionManager.productionManager;
 
 public class maintenanceManagerController {
@@ -82,18 +84,18 @@ public class maintenanceManagerController {
                     productionManager productionManager = new productionManager();
                     productionManager.start(new Stage());
                     break;
-                // case "Maintenance Manager":
-                // maintenanceManager maintenanceManager = new maintenanceManager();
-                // maintenanceManager.start(new Stage());
-                // break;
-                // case "Analyst":
-                // analyst analyst = new analyst();
-                // analyst.start(new Stage());
-                // break;
-                // case "Maintenance Technician":
-                // maintenanceTechnician maintenanceTechnician = new maintenanceTechnician();
-                // maintenanceTechnician.start(new Stage());
-                // break;
+                case "Maintenance Manager":
+                    maintenanceManager maintenanceManager = new maintenanceManager();
+                    maintenanceManager.start(new Stage());
+                    break;
+                case "Analyst":
+                    Analyst analyst = new Analyst();
+                    analyst.start(new Stage());
+                    break;
+                case "Maintenance Technician":
+                    maintenanceTechnician maintenanceTechnician = new maintenanceTechnician();
+                    maintenanceTechnician.start(new Stage());
+                    break;
                 // case "Operator":
                 // operator operator = new operator();
                 // operator.start(new Stage());

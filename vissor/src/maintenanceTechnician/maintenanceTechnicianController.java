@@ -1,4 +1,4 @@
-package productionManager;
+package maintenanceTechnician;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,9 +11,9 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
-import maintenanceTechnician.maintenanceTechnician;
+import productionManager.productionManager;
 
-public class productionManagerController {
+public class maintenanceTechnicianController {
     @FXML
     private ResourceBundle resources;
 
