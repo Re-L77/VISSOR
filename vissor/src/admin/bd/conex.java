@@ -69,7 +69,7 @@ public class conex {
 
     private static HikariDataSource crearDataSource() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/VISSOR");
+        config.setJdbcUrl("jdbc:mysql://localhost:3308/VISSOR");
         config.setUsername("root");
         config.setPassword("rootpass");
         config.setMaximumPoolSize(5);
