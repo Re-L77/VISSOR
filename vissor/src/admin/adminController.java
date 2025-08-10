@@ -1,12 +1,25 @@
 package admin;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+// import com.mysql.cj.xdevapi.Statement;
+import java.sql.Statement;
+
+import admin.bd.Users;
+import admin.bd.conex;
 import analyst.Analyst;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
@@ -30,6 +43,24 @@ public class adminController {
     private Pane usersRoles;
     @FXML
     private MenuButton menuButton;
+
+    @FXML
+    private TableView<Users> tableViewUsuarios;
+
+    @FXML
+    private TableColumn<Users, Integer> id_usuario;
+    @FXML
+    private TableColumn<Users, String> nombre;
+    @FXML
+    private TableColumn<Users, String> correo;
+    @FXML
+    private TableColumn<Users, String> contrasena;
+    @FXML
+    private TableColumn<Users, Integer> id_rol;
+    @FXML
+    private TableColumn<Users, String> activo;
+    @FXML
+    private TableColumn<Users, String> creado_en;
 
     @FXML
     private void mostrarUsers(ActionEvent event) {
@@ -117,5 +148,42 @@ public class adminController {
         users.setVisible(true);
         usersAccess.setVisible(false);
         usersRoles.setVisible(false);
+
+        id_usuario.setCellValueFactory(new PropertyValueFactory<>("id_usuario"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        correo.setCellValueFactory(new PropertyValueFactory<>("correo"));
+        contrasena.setCellValueFactory(new PropertyValueFactory<>("contrasena"));
+        id_rol.setCellValueFactory(new PropertyValueFactory<>("id_rol"));
+        activo.setCellValueFactory(new PropertyValueFactory<>("activo"));
+        creado_en.setCellValueFactory(new PropertyValueFactory<>("creado_en"));
+        cargarUsuarios();
+    }
+
+    private void cargarUsuarios() {
+        ObservableList<Users> listaUsuarios = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM USUARIOS";
+
+        try (Connection conn = conex.dataSource.getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Users usuario = new Users(
+                        rs.getInt("id_usuario"),
+                        rs.getString("nombre"),
+                        rs.getString("correo"),
+                        rs.getString("contrasena"),
+                        rs.getInt("id_rol"),
+                        rs.getString("activo"),
+                        rs.getString("creado_en"));
+                listaUsuarios.add(usuario);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Asigna la lista de usuarios a la TableView
+        tableViewUsuarios.setItems(listaUsuarios);
     }
 }

@@ -1,0 +1,8 @@
+# Ignora la carpeta .vscode completa
+.vscode/
+
+# Ignora archivos específicos dentro de la carpeta
+# .vscode/settings.json
+
+# Ignora archivos de registro
+# *.log
