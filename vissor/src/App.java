@@ -1,3 +1,4 @@
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,11 +9,10 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
-            Scene scene = new Scene(root);
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+            Parent root = loader.load();
+            primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("VISSOR");
-            primaryStage.setScene(scene);
             primaryStage.setMinHeight(720);
             primaryStage.setMinWidth(1080);
             primaryStage.setResizable(false);

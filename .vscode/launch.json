@@ -6,10 +6,10 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Attach",
-      "request": "attach",
-      "hostName": "localhost",
-      "port": "<debug port of the debuggee>"
+      "name": "App",
+      "request": "launch",
+      "mainClass": "admin.App",
+      "projectName": "VISSOR_53184f7f"
     },
     {
       "type": "java",
