@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #e1e3e8;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #e1e3e8;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
    <children>
    <Pane layoutX="180.0" prefHeight="80.0" prefWidth="900.0" style="-fx-background-color: #1e88e5;">
          <children>
@@ -68,17 +68,17 @@
             </Button>
          </children>
       </Pane>
-   <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;">
+   <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0">
          <children>
             <TableView fx:id="tableViewUsuarios" layoutX="21.0" layoutY="87.0" prefHeight="541.0" prefWidth="865.0">
               <columns>
                 <TableColumn id="id_usuario" fx:id="id_usuario" prefWidth="40.79998779296875" text="ID" />
                 <TableColumn id="nombre" fx:id="nombre" prefWidth="157.6000213623047" text="NAME" />
                   <TableColumn id="correo" fx:id="correo" prefWidth="178.4000244140625" text="EMAIL" />
-                  <TableColumn id="contrasena" fx:id="contrasena" minWidth="0.0" prefWidth="212.0" text="PASSWORD" />
-                  <TableColumn id="id_rol" fx:id="id_rol" prefWidth="56.0" text="ROLE" />
-                  <TableColumn id="activo" fx:id="activo" minWidth="9.5999755859375" prefWidth="56.0" text="STATUS" />
-                  <TableColumn id="creado_en" fx:id="creado_en" prefWidth="164.7999267578125" text="CREATION DATE" />
+                  <TableColumn id="contrasena" fx:id="contrasena" minWidth="0.0" prefWidth="184.79998779296875" text="PASSWORD" />
+                  <TableColumn id="id_rol" fx:id="id_rol" prefWidth="57.5999755859375" text="ROLE" />
+                  <TableColumn id="activo" fx:id="activo" minWidth="9.5999755859375" prefWidth="65.5999755859375" text="STATUS" />
+                  <TableColumn id="creado_en" fx:id="creado_en" prefWidth="181.60009765625" text="CREATION DATE" />
               </columns>
                <opaqueInsets>
                   <Insets />

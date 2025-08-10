@@ -6,7 +6,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import java.sql.*;
 
 public class conex {
-    private static final HikariDataSource dataSource = crearDataSource();
+    public static final HikariDataSource dataSource = crearDataSource();
 
     public static void main(String[] args) {
 
