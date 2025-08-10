@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #e1e3e8;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
+   <children>
+   <Pane layoutX="180.0" prefHeight="80.0" prefWidth="900.0" style="-fx-background-color: #1e88e5;">
+         <children>
+            <Label layoutX="43.0" layoutY="21.0" text="------------------">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <TextField layoutX="538.0" layoutY="27.0" promptText="Search in VISSOR" />
+               <MenuButton id="users" fx:id="menuButton" layoutX="736.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Admin">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+               <items>
+                <MenuItem id="1" disable="true" mnemonicParsing="false" onAction="#cambiarPagina" text="Admin" visible="false" />
+                  <MenuItem id="2" mnemonicParsing="false" onAction="#cambiarPagina" text="Production Manager" />
+                <MenuItem id="3" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Manager" />
+                  <MenuItem id="4" mnemonicParsing="false" onAction="#cambiarPagina" text="Analyst" />
+                  <MenuItem id="5" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Technician" />
+                  <MenuItem id="6" mnemonicParsing="false" onAction="#cambiarPagina" text="Operator" />
+               </items>
+            </MenuButton>
+         </children>
+      </Pane>
+   <Pane prefHeight="720.0" prefWidth="180.0" style="-fx-background-color: #282c34;">
+         <children>
+            <ImageView fitHeight="78.0" fitWidth="86.0" layoutX="52.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="132.0" text="ADMIN" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Italic" size="12.0" />
+               </font>
+            </Label>
+            <Button id="1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="16.0" layoutY="167.0" mnemonicParsing="false" onAction="#mostrarUsers" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #1e88e5; -fx-alignment: CENTER_LEFT;" text="Users" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Italic" size="16.0" />
+               </font>
+            </Button>
+            <Button id="2" alignment="TOP_LEFT" layoutX="17.0" layoutY="227.0" mnemonicParsing="false" onAction="#mostrarUsersAccess" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #282c34; -fx-alignment: CENTER_LEFT;" text="User Access" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Italic" size="16.0" />
+               </font>
+            </Button>
+            <Button id="3" alignment="TOP_LEFT" layoutX="17.0" layoutY="287.0" mnemonicParsing="false" onAction="#mostrarUsersRoles" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #282c34; -fx-alignment: CENTER_LEFT;" text="User Roles" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Italic" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;">
+         <children>
+            <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+              </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TableView>
+            <Label layoutX="23.0" layoutY="26.0" text="1">
+               <font>
+                  <Font name="Segoe UI Italic" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   <Pane id="userAccess" fx:id="usersAccess" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
+         <children>
+            <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+               </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TableView>
+            <Label id="userRoles" layoutX="23.0" layoutY="26.0" text="2">
+               <font>
+                  <Font name="Segoe UI Italic" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   <Pane fx:id="usersRoles" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
+         <children>
+            <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+               </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TableView>
+            <Label layoutX="23.0" layoutY="26.0" text="3">
+               <font>
+                  <Font name="Segoe UI Italic" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
