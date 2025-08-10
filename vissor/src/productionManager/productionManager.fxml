@@ -3,8 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #e1e3e8;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #e1e3e8;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="productionManager.productionManagerController">
    <children>
    <Pane layoutX="180.0" prefHeight="80.0" prefWidth="900.0" style="-fx-background-color: #1e88e5;">
          <children>
@@ -24,31 +24,31 @@
                </font>
             </Label>
             <TextField layoutX="565.0" layoutY="27.0" promptText="Search in VISSOR" />
-            <SplitMenuButton layoutX="731.0" layoutY="22.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Admin">
-              <items>
-                <MenuItem mnemonicParsing="false" text="1" />
-                  <MenuItem mnemonicParsing="false" text="2" />
-                <MenuItem mnemonicParsing="false" text="3" />
-                  <MenuItem mnemonicParsing="false" text="4" />
-                  <MenuItem mnemonicParsing="false" text="5" />
-                  <MenuItem mnemonicParsing="false" text="6" />
-              </items>
+            <MenuButton id="menuButton" layoutX="736.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Production Manager">
                <font>
-                  <Font name="Segoe UI Italic" size="12.0" />
+                  <Font name="Segoe UI Italic" size="13.0" />
                </font>
-            </SplitMenuButton>
+               <items>
+                  <MenuItem id="1" mnemonicParsing="false" onAction="#cambiarPagina" text="Admin" />
+                  <MenuItem id="2" disable="true" mnemonicParsing="false" onAction="#cambiarPagina" text="Production Manager" visible="false" />
+                  <MenuItem id="3" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Manager" />
+                  <MenuItem id="4" mnemonicParsing="false" onAction="#cambiarPagina" text="Analyst" />
+                  <MenuItem id="5" mnemonicParsing="false" onAction="#cambiarPagina" text="Maintenance Technician" />
+                  <MenuItem id="6" mnemonicParsing="false" onAction="#cambiarPagina" text="Operator" />
+               </items>
+            </MenuButton>
          </children>
       </Pane>
    <Pane prefHeight="720.0" prefWidth="180.0" style="-fx-background-color: #282c34;">
          <children>
             <ImageView fitHeight="78.0" fitWidth="86.0" layoutX="52.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@logo.png" />
+                  <Image url="@images/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="27.0" layoutY="132.0" text="ADMIN" textFill="WHITE">
+            <Label layoutX="20.0" layoutY="134.0" prefWidth="178.0" text="PRODUCTION MANAGER" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI Italic" size="16.0" />
+                  <Font name="Segoe UI Italic" size="12.0" />
                </font>
             </Label>
             <Button id="1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="16.0" layoutY="167.0" mnemonicParsing="false" onAction="#mostrarUsers" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #1e88e5; -fx-alignment: CENTER_LEFT;" text="Users" textFill="WHITE" wrapText="true">
