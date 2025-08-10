@@ -114,6 +114,8 @@ public class adminController {
     void initialize() {
         // Aquí puedes poner la lógica de inicio, por ejemplo,
         // asegurarte de que solo el primer panel es visible al principio.
-        // handleUsersButtonAction();
+        users.setVisible(true);
+        usersAccess.setVisible(false);
+        usersRoles.setVisible(false);
     }
 }
