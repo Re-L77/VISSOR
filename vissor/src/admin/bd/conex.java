@@ -51,6 +51,25 @@ public class Conex {
         }
     }
 
+    public static void eliminarUsuario(int id_usuario) {
+        String sql = "DELETE FROM `USUARIOS` WHERE `id_usuario` = ?";
+        try (Connection conn = dataSource.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id_usuario);
+            int filas = pstmt.executeUpdate();
+            if (filas > 0) {
+                System.out.println("Eliminado usuario con ID: " + id_usuario + " (" + filas + " fila afectada)");
+            } else {
+                System.out.println("No se encontró el usuario con ID: " + id_usuario);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error eliminando usuario");
+            e.printStackTrace();
+        }
+    }
+
     private static HikariDataSource crearDataSource() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://localhost:3306/VISSOR");
