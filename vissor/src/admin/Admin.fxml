@@ -69,6 +69,11 @@
                   <Font name="Segoe UI Italic" size="16.0" />
                </font>
             </Button>
+            <Button id="2" alignment="TOP_LEFT" layoutX="16.0" layoutY="351.0" mnemonicParsing="false" onAction="#mostrarUsersAccess" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #282c34; -fx-alignment: CENTER_LEFT;" text="User Access" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Italic" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0">
@@ -78,10 +83,10 @@
                 <TableColumn id="id_usuario" fx:id="id_usuario" prefWidth="40.79998779296875" text="ID" />
                 <TableColumn id="nombre" fx:id="nombre" prefWidth="157.6000213623047" text="NAME" />
                   <TableColumn id="correo" fx:id="correo" prefWidth="178.4000244140625" text="EMAIL" />
-                  <TableColumn id="contrasena" fx:id="contrasena" minWidth="0.0" prefWidth="184.79998779296875" text="PASSWORD" />
-                  <TableColumn id="id_rol" fx:id="id_rol" prefWidth="57.5999755859375" text="ROLE" />
-                  <TableColumn id="activo" fx:id="activo" minWidth="9.5999755859375" prefWidth="65.5999755859375" text="STATUS" />
-                  <TableColumn id="creado_en" fx:id="creado_en" prefWidth="181.60009765625" text="CREATION DATE" />
+                  <TableColumn id="contrasena" fx:id="contrasena" minWidth="0.0" prefWidth="167.20001220703125" text="PASSWORD" />
+                  <TableColumn id="id_rol" fx:id="id_rol" prefWidth="56.0" text="ROLE" />
+                  <TableColumn id="activo" fx:id="activo" minWidth="9.5999755859375" prefWidth="59.199951171875" text="STATUS" />
+                  <TableColumn id="creado_en" fx:id="creado_en" prefWidth="205.60009765625" text="CREATION DATE" />
               </columns>
                <opaqueInsets>
                   <Insets />
@@ -92,14 +97,14 @@
                   <Font name="Segoe UI Italic" size="28.0" />
                </font>
             </Label>
-            <Button id="test" fx:id="testButton" layoutX="705.0" layoutY="126.0" mnemonicParsing="false" onAction="#insertarUsuario" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #17C553;" text="Add" textFill="WHITE">
+            <Button id="test" fx:id="testButton" layoutX="404.0" layoutY="151.0" mnemonicParsing="false" onAction="#insertarUsuario" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #17C553;" text="Add" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Italic" size="16.0" />
                </font>
             </Button>
-            <TextField fx:id="name" layoutX="79.0" layoutY="78.0">
+            <TextField fx:id="name" layoutX="114.0" layoutY="80.0" prefHeight="28.0" prefWidth="167.0">
                <font>
-                  <Font name="Segoe UI" size="13.0" />
+                  <Font name="Segoe UI" size="14.0" />
                </font>
             </TextField>
             <Label layoutX="23.0" layoutY="82.0" text="NAME">
@@ -107,23 +112,31 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="email" layoutX="323.0" layoutY="78.0" prefHeight="25.0" prefWidth="169.0">
+            <TextField fx:id="email" layoutX="114.0" layoutY="115.0" prefHeight="25.0" prefWidth="169.0">
                <font>
-                  <Font name="Segoe UI" size="13.0" />
+                  <Font name="Segoe UI" size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="267.0" layoutY="82.0" text="EMAIL">
+            <Label layoutX="21.0" layoutY="116.0" text="EMAIL">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="522.0" layoutY="82.0" text="PASSWORD">
+            <Label layoutX="23.0" layoutY="145.0" text="PASSWORD">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <PasswordField fx:id="password" layoutX="624.0" layoutY="78.0" text="." />
             <MenuButton id="role" fx:id="role" layoutX="81.0" layoutY="127.0" maxHeight="30.0" maxWidth="180.0" minHeight="30.0" minWidth="180.0" mnemonicParsing="false" onAction="#cambiarRol" prefHeight="30.0" prefWidth="180.0" text="Admin" underline="true">
+=======
+            <PasswordField fx:id="password" layoutX="114.0" layoutY="150.0" prefHeight="28.0" prefWidth="169.0">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font></PasswordField>
+            <MenuButton id="role" fx:id="role" layoutX="363.0" layoutY="79.0" maxHeight="30.0" maxWidth="180.0" minHeight="30.0" minWidth="180.0" mnemonicParsing="false" onAction="#cambiarRol" prefHeight="30.0" prefWidth="180.0" text="Admin" underline="true">
+>>>>>>> origin/Sofas
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -136,17 +149,33 @@
                   <MenuItem mnemonicParsing="false" onAction="#cambiarRol" text="Operator" />
                </items>
             </MenuButton>
-            <CheckBox fx:id="active" disable="true" layoutX="346.0" layoutY="131.0" mnemonicParsing="false" selected="true" text="ACTIVE" underline="true">
+            <CheckBox fx:id="active" layoutX="307.0" layoutY="151.0" mnemonicParsing="false" selected="true" text="ACTIVE" underline="true">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </CheckBox>
-            <DatePicker fx:id="creation_date" layoutX="481.0" layoutY="129.0" />
-            <Label layoutX="23.0" layoutY="132.0" text="ROLE">
+            <DatePicker fx:id="creation_date" layoutX="363.0" layoutY="116.0" prefWidth="180.0" />
+            <Label layoutX="305.0" layoutY="84.0" text="ROLE">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
+            <Label layoutX="306.0" layoutY="120.0" text="DATE">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="732.0" layoutY="39.0" text="ACTIONS" />
+            <Button id="test" fx:id="deleteButton" layoutX="684.0" layoutY="68.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #F4252F;" text="DELETE ROW" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Italic" size="16.0" />
+               </font>
+            </Button>
+            <Button id="test" fx:id="updateButton" layoutX="685.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #2980F8;" text="UPDATE ROW" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Italic" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    <Pane id="userAccess" fx:id="usersAccess" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
