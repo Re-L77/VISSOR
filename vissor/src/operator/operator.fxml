@@ -68,7 +68,7 @@
             </Button>
          </children>
       </Pane>
-   <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;">
+   <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #BFBFBF;">
          <children>
             <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
               <columns>
@@ -88,7 +88,7 @@
                   <Insets />
                </opaqueInsets>
             </TableView>
-            <Label layoutX="23.0" layoutY="26.0" text="1">
+            <Label layoutX="23.0" layoutY="26.0" prefHeight="34.0" prefWidth="193.0">
                <font>
                   <Font name="Segoe UI Italic" size="28.0" />
                </font>

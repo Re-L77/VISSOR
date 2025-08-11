@@ -33,7 +33,7 @@ CREATE TABLE `DATOS_PLCS` (
   `timestamp` datetime NOT NULL,
   `tag` varchar(50) NOT NULL,
   `valor` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Volcado de datos para la tabla `DATOS_PLCS`
@@ -58,7 +58,7 @@ CREATE TABLE `MANTENIMIENTOS` (
   `fecha_programada` date NOT NULL,
   `fecha_realizada` date DEFAULT NULL,
   `descripcion` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Volcado de datos para la tabla `MANTENIMIENTOS`
@@ -79,7 +79,7 @@ CREATE TABLE `PERMISOS` (
   `id_permiso` int NOT NULL,
   `id_rol` int NOT NULL,
   `recurso` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Volcado de datos para la tabla `PERMISOS`
@@ -109,7 +109,7 @@ CREATE TABLE `PLCS` (
   `ip` varchar(15) NOT NULL,
   `protocolo` varchar(50) DEFAULT NULL,
   `activo` tinyint(1) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Volcado de datos para la tabla `PLCS`
@@ -132,7 +132,7 @@ CREATE TABLE `REPORTES_PRODUCCION` (
   `eficiencia` float NOT NULL,
   `scrap` float NOT NULL,
   `generado_por` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Volcado de datos para la tabla `REPORTES_PRODUCCION`
@@ -152,7 +152,7 @@ INSERT INTO `REPORTES_PRODUCCION` (`id_reporte`, `fecha`, `eficiencia`, `scrap`,
 CREATE TABLE `ROLES` (
   `id_rol` int NOT NULL,
   `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Volcado de datos para la tabla `ROLES`
@@ -180,7 +180,7 @@ CREATE TABLE `USUARIOS` (
   `id_rol` int NOT NULL,
   `activo` tinyint(1) DEFAULT '1',
   `creado_en` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Volcado de datos para la tabla `USUARIOS`

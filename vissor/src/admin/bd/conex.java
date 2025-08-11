@@ -7,7 +7,7 @@ import javafx.scene.control.Alert.AlertType;
 
 import java.sql.*;
 
-public class Conex {
+public class conex {
     public static final HikariDataSource dataSource = crearDataSource();
 
     public static void insertarUsuario(String nombre, String correo, String contrasena, int id_rol, Boolean activo,
@@ -55,7 +55,7 @@ public class Conex {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://localhost:3306/VISSOR");
         config.setUsername("root");
-        config.setPassword("rootpass");
+        config.setPassword("root");
         config.setMaximumPoolSize(5);
         config.addDataSourceProperty("cachePrepStmts", "true");
         config.addDataSourceProperty("prepStmtCacheSize", "250");

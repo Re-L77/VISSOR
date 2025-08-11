@@ -14,6 +14,17 @@
     "vissor/lib/javafx-swt.jar",
     "vissor/lib/jdk.jsobject.jar",
     "vissor/lib/jfx.incubator.input.jar",
-    "vissor/lib/jfx.incubator.richtext.jar"
+    "vissor/lib/jfx.incubator.richtext.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.base.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.controls.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.fxml.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.graphics.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.media.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.swing.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx.web.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\javafx-swt.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\jdk.jsobject.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\jfx.incubator.input.jar",
+    "c:\\Program Files\\Java\\javafx-sdk-24.0.2\\lib\\jfx.incubator.richtext.jar"
   ]
 }
