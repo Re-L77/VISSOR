@@ -7,7 +7,7 @@ import javafx.scene.control.Alert.AlertType;
 
 import java.sql.*;
 
-public class Conex {
+public class conex {
     public static final HikariDataSource dataSource = crearDataSource();
 
     public static void insertarUsuario(String nombre, String correo, String contrasena, int id_rol, Boolean activo,
