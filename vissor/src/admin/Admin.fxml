@@ -122,7 +122,7 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-            <PasswordField fx:id="password" layoutX="624.0" layoutY="78.0" />
+            <PasswordField fx:id="password" layoutX="624.0" layoutY="78.0" text="." />
             <MenuButton id="role" fx:id="role" layoutX="81.0" layoutY="127.0" maxHeight="30.0" maxWidth="180.0" minHeight="30.0" minWidth="180.0" mnemonicParsing="false" onAction="#cambiarRol" prefHeight="30.0" prefWidth="180.0" text="Admin" underline="true">
                <font>
                   <Font name="Segoe UI" size="15.0" />

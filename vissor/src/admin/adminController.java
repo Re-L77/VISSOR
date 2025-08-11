@@ -113,19 +113,6 @@ public class adminController {
         // Aquí puedes implementar la lógica para insertar un nuevo usuario
         // Por ejemplo, abrir un diálogo para ingresar los datos del usuario
         // y luego llamar al método insertarUsuario de la clase Conex.
-        String nombre = this.name.getText();
-        String correo = this.email.getText();
-        String contrasena = this.password.getText();
-        int id_rol = getIdRolFromText(this.role.getText());
-        Boolean activo = this.active.isSelected();
-        String creado_en = this.creation.getValue().atTime(java.time.LocalTime.now()).toString();
-        System.out.println("Usuario a insertar:");
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Correo: " + correo);
-        System.out.println("Contraseña: " + contrasena);
-        System.out.println("ID Rol: " + id_rol);
-        System.out.println("Activo: " + activo);
-        System.out.println("Creado En: " + creado_en);
         // Conex.insertarUsuario(nombre, correo, contrasena, id_rol, activo, creado_en);
         cargarUsuarios(); // Recargar la lista de usuarios después de insertar
     }
