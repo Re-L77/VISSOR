@@ -5,9 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-//123
+
 public class operator extends Application {
-    public static Object operator;
 
     @Override
     public void start(Stage primaryStage) {

@@ -229,23 +229,4 @@ public class adminController {
         // Asigna la lista de usuarios a la TableView
         tableViewUsuarios.setItems(listaUsuarios);
     }
-
-    private int getIdRolFromText(String rolText) {
-        switch (rolText) {
-            case "Admin":
-                return 1;
-            case "Production Manager":
-                return 3;
-            case "Maintenance Manager":
-                return 4;
-            case "Analyst":
-                return 5;
-            case "Maintenance Technician":
-                return 2;
-            case "Operator":
-                return 6;
-            default:
-                return 1; // o algún valor por defecto
-        }
-    }
 }

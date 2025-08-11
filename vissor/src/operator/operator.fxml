@@ -98,7 +98,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TableView layoutX="24.0" layoutY="110.0" prefHeight="417.0" prefWidth="829.0">
+            <TableView layoutX="34.0" layoutY="121.0" prefHeight="417.0" prefWidth="829.0" stylesheets="@../admin/style.css">
               <columns>
                 <TableColumn prefWidth="108.0" text="ID_PLC" />
                 <TableColumn prefWidth="97.0" text="MODELO " />
@@ -107,6 +107,11 @@
                   <TableColumn prefWidth="125.0" text="ACTIVO" />
               </columns>
             </TableView>
+            <Button layoutX="709.0" layoutY="50.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="134.0" text="Add">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    <Pane id="userAccess" fx:id="usersAccess" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
