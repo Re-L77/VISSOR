@@ -10,7 +10,7 @@ public class admin extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Admin.fxml"));
             Parent root = loader.load();
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Admin");
