@@ -107,6 +107,29 @@ public class adminController {
         activo.setCellValueFactory(new PropertyValueFactory<>("activo"));
         creado_en.setCellValueFactory(new PropertyValueFactory<>("creado_en"));
         cargarUsuarios();
+
+        // Hacer columnas editables
+        tableViewUsuarios.setEditable(true);
+
+        nombre.setCellFactory(javafx.scene.control.cell.TextFieldTableCell.forTableColumn());
+        nombre.setOnEditCommit(event -> {
+            Users user = event.getRowValue();
+            user.nombreProperty().set(event.getNewValue());
+        });
+
+        correo.setCellFactory(javafx.scene.control.cell.TextFieldTableCell.forTableColumn());
+        correo.setOnEditCommit(event -> {
+            Users user = event.getRowValue();
+            user.correoProperty().set(event.getNewValue());
+        });
+
+        contrasena.setCellFactory(javafx.scene.control.cell.TextFieldTableCell.forTableColumn());
+        contrasena.setOnEditCommit(event -> {
+            Users user = event.getRowValue();
+            user.contrasenaProperty().set(event.getNewValue());
+        });
+
+        // Si quieres que otras columnas sean editables, repite el patrón
     }
 
     @FXML
@@ -300,14 +323,25 @@ public class adminController {
     private void updateUser(ActionEvent event) {
         Users selectedUser = tableViewUsuarios.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
-            // Aquí puedes abrir un nuevo diálogo o ventana para editar los detalles del
-            // usuario
-            // Por simplicidad, solo mostraremos un mensaje por ahora
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Actualizar Usuario");
             alert.setHeaderText(null);
             alert.setContentText("Actualizar usuario: " + selectedUser.nombreProperty().get() + "?");
             alert.showAndWait();
+
+            // Conversión correcta de activo
+            boolean activoBool = selectedUser.activoProperty().get().equals("1") ||
+                    selectedUser.activoProperty().get().equalsIgnoreCase("true");
+
+            Conex.actualizarUsuario(
+                    selectedUser.id_usuarioProperty().get(),
+                    selectedUser.nombreProperty().get(),
+                    selectedUser.correoProperty().get(),
+                    selectedUser.contrasenaProperty().get(),
+                    selectedUser.id_rolProperty().get(),
+                    activoBool,
+                    selectedUser.creado_enProperty().get());
+            cargarUsuarios(); // Recargar la lista de usuarios después de actualizar
         } else {
             Alert alert = new Alert(AlertType.WARNING);
             alert.setTitle("Advertencia");

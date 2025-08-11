@@ -70,6 +70,33 @@ public class Conex {
         }
     }
 
+    public static void actualizarUsuario(int id_usuario, String nombre, String correo, String contrasena,
+            int id_rol, Boolean activo, String creado_en) {
+        String sql = "UPDATE `USUARIOS` SET `nombre` = ?, `correo` = ?, `contrasena` = ?, `id_rol` = ?, `activo` = ?, `creado_en` = ? WHERE `id_usuario` = ?";
+        try (Connection conn = dataSource.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, nombre);
+            pstmt.setString(2, correo);
+            pstmt.setString(3, contrasena);
+            pstmt.setInt(4, id_rol);
+            pstmt.setBoolean(5, activo);
+            pstmt.setString(6, creado_en);
+            pstmt.setInt(7, id_usuario);
+
+            int filas = pstmt.executeUpdate();
+            if (filas > 0) {
+                System.out.println("Actualizado usuario con ID: " + id_usuario + " (" + filas + " fila afectada)");
+            } else {
+                System.out.println("No se encontró el usuario con ID: " + id_usuario);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error actualizando usuario");
+            e.printStackTrace();
+        }
+    }
+
     private static HikariDataSource crearDataSource() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://localhost:3306/VISSOR");

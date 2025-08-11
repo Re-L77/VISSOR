@@ -144,7 +144,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#cambiarRol" text="Operator" />
                </items>
             </MenuButton>
-            <CheckBox fx:id="active" disable="true" layoutX="307.0" layoutY="151.0" mnemonicParsing="false" selected="true" text="ACTIVE" underline="true">
+            <CheckBox fx:id="active" layoutX="307.0" layoutY="151.0" mnemonicParsing="false" selected="true" text="ACTIVE" underline="true">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
