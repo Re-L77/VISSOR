@@ -17,20 +17,28 @@ import javafx.scene.layout.Pane;
 public class Analyst_Controller {
 
     // Paneles para mostrar/ocultar
-    @FXML public Pane users;       // Panel gráficas
-    @FXML public Pane usersAccess; // Panel generación de reportes
-    @FXML public Pane usersRoles;  // Panel exportación
-    
+    @FXML
+    public Pane users; // Panel gráficas
+    @FXML
+    public Pane usersAccess; // Panel generación de reportes
+    @FXML
+    public Pane usersRoles; // Panel exportación
 
-    @FXML public Button btnReportes;
+    @FXML
+    public Button btnReportes;
     // Elementos de la gráfica
-    @FXML public LineChart<String, Number> lineChart;
+    @FXML
+    public LineChart<String, Number> lineChart;
 
     // Elementos de la tabla para reportes
-    @FXML public TableView<ReporteSimulado> tableReportes;
-    @FXML public TableColumn<ReporteSimulado, String> colFecha;
-    @FXML public TableColumn<ReporteSimulado, Float> colEficiencia;
-    @FXML public TableColumn<ReporteSimulado, Float> colScrap;
+    @FXML
+    public TableView<ReporteSimulado> tableReportes;
+    @FXML
+    public TableColumn<ReporteSimulado, String> colFecha;
+    @FXML
+    public TableColumn<ReporteSimulado, Float> colEficiencia;
+    @FXML
+    public TableColumn<ReporteSimulado, Float> colScrap;
 
     // Clase para representar datos simulados en tabla
     public static class ReporteSimulado {
@@ -43,9 +51,18 @@ public class Analyst_Controller {
             this.eficiencia = eficiencia;
             this.scrap = scrap;
         }
-        public String getFecha() { return fecha; }
-        public Float getEficiencia() { return eficiencia; }
-        public Float getScrap() { return scrap; }
+
+        public String getFecha() {
+            return fecha;
+        }
+
+        public Float getEficiencia() {
+            return eficiencia;
+        }
+
+        public Float getScrap() {
+            return scrap;
+        }
     }
 
     @FXML
@@ -60,6 +77,7 @@ public class Analyst_Controller {
         colScrap.setCellValueFactory(new PropertyValueFactory<>("scrap"));
     }
 
+    @SuppressWarnings("unchecked")
     private void cargarGraficaSimulada() {
         lineChart.getData().clear();
 
@@ -70,9 +88,9 @@ public class Analyst_Controller {
         scrapSeries.setName("Scrap");
 
         // Datos simulados
-        String[] fechas = {"2025-08-01", "2025-08-02", "2025-08-03", "2025-08-04", "2025-08-05"};
-        float[] eficiencias = {90.5f, 92.3f, 89.7f, 94.1f, 91.0f};
-        float[] scraps = {2.5f, 1.9f, 2.8f, 1.5f, 2.0f};
+        String[] fechas = { "2025-08-01", "2025-08-02", "2025-08-03", "2025-08-04", "2025-08-05" };
+        float[] eficiencias = { 90.5f, 92.3f, 89.7f, 94.1f, 91.0f };
+        float[] scraps = { 2.5f, 1.9f, 2.8f, 1.5f, 2.0f };
 
         for (int i = 0; i < fechas.length; i++) {
             eficienciaSeries.getData().add(new XYChart.Data<>(fechas[i], eficiencias[i]));
@@ -84,12 +102,11 @@ public class Analyst_Controller {
 
     private void cargarDatosReportesSimulados() {
         ObservableList<ReporteSimulado> data = FXCollections.observableArrayList(
-            new ReporteSimulado("2025-08-01", 90.5f, 2.5f),
-            new ReporteSimulado("2025-08-02", 92.3f, 1.9f),
-            new ReporteSimulado("2025-08-03", 89.7f, 2.8f),
-            new ReporteSimulado("2025-08-04", 94.1f, 1.5f),
-            new ReporteSimulado("2025-08-05", 91.0f, 2.0f)
-        );
+                new ReporteSimulado("2025-08-01", 90.5f, 2.5f),
+                new ReporteSimulado("2025-08-02", 92.3f, 1.9f),
+                new ReporteSimulado("2025-08-03", 89.7f, 2.8f),
+                new ReporteSimulado("2025-08-04", 94.1f, 1.5f),
+                new ReporteSimulado("2025-08-05", 91.0f, 2.0f));
         tableReportes.setItems(data);
     }
 

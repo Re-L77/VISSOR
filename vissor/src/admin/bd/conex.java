@@ -101,7 +101,7 @@ public class Conex {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://localhost:3306/VISSOR");
         config.setUsername("root");
-        config.setPassword("root");
+        config.setPassword("rootpass");
         config.setMaximumPoolSize(5);
         config.addDataSourceProperty("cachePrepStmts", "true");
         config.addDataSourceProperty("prepStmtCacheSize", "250");

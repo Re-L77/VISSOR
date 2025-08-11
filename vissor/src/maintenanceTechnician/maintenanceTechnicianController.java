@@ -64,7 +64,7 @@ public class maintenanceTechnicianController {
     }
 
     @FXML
-    private void cambiarPagina(ActionEvent event) {
+    private void cambiarPagina(ActionEvent event) throws Exception {
         if (event.getSource() instanceof javafx.scene.control.MenuItem) {
             javafx.scene.control.MenuItem item = (javafx.scene.control.MenuItem) event.getSource();
             String menuText = item.getText();
