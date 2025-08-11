@@ -10,22 +10,27 @@ import java.util.ResourceBundle;
 import java.sql.Statement;
 
 import admin.bd.Users;
-import admin.bd.conex;
+import admin.bd.Conex;
 import analyst.Analyst;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
 import maintenanceTechnician.maintenanceTechnician;
 import operator.operator;
-// import maintenanceTechnician.maintenanceTechnician;
 import productionManager.productionManager;
 
 public class adminController {
@@ -44,6 +49,28 @@ public class adminController {
     @FXML
     private MenuButton menuButton;
 
+    // insert
+    @FXML
+    private TextField name;
+
+    @FXML
+    private TextField email;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private MenuButton role;
+
+    @FXML
+    private CheckBox active;
+
+    @FXML
+    private DatePicker creation;
+
+    @FXML
+    private Button testButton;
+
     @FXML
     private TableView<Users> tableViewUsuarios;
 
@@ -61,6 +88,47 @@ public class adminController {
     private TableColumn<Users, String> activo;
     @FXML
     private TableColumn<Users, String> creado_en;
+
+    @FXML
+    void initialize() {
+        // Aquí puedes poner la lógica de inicio, por ejemplo,
+        // asegurarte de que solo el primer panel es visible al principio.
+        users.setVisible(true);
+        usersAccess.setVisible(false);
+        usersRoles.setVisible(false);
+
+        id_usuario.setCellValueFactory(new PropertyValueFactory<>("id_usuario"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        correo.setCellValueFactory(new PropertyValueFactory<>("correo"));
+        contrasena.setCellValueFactory(new PropertyValueFactory<>("contrasena"));
+        id_rol.setCellValueFactory(new PropertyValueFactory<>("id_rol"));
+        activo.setCellValueFactory(new PropertyValueFactory<>("activo"));
+        creado_en.setCellValueFactory(new PropertyValueFactory<>("creado_en"));
+
+        cargarUsuarios();
+    }
+
+    @FXML
+    private void insertarUsuario(ActionEvent event) {
+        // Aquí puedes implementar la lógica para insertar un nuevo usuario
+        // Por ejemplo, abrir un diálogo para ingresar los datos del usuario
+        // y luego llamar al método insertarUsuario de la clase Conex.
+        String nombre = this.name.getText();
+        String correo = this.email.getText();
+        String contrasena = this.password.getText();
+        int id_rol = getIdRolFromText(this.role.getText());
+        Boolean activo = this.active.isSelected();
+        String creado_en = this.creation.getValue().atTime(java.time.LocalTime.now()).toString();
+        System.out.println("Usuario a insertar:");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Correo: " + correo);
+        System.out.println("Contraseña: " + contrasena);
+        System.out.println("ID Rol: " + id_rol);
+        System.out.println("Activo: " + activo);
+        System.out.println("Creado En: " + creado_en);
+        // Conex.insertarUsuario(nombre, correo, contrasena, id_rol, activo, creado_en);
+        cargarUsuarios(); // Recargar la lista de usuarios después de insertar
+    }
 
     @FXML
     private void mostrarUsers(ActionEvent event) {
@@ -142,28 +210,16 @@ public class adminController {
     }
 
     @FXML
-    void initialize() {
-        // Aquí puedes poner la lógica de inicio, por ejemplo,
-        // asegurarte de que solo el primer panel es visible al principio.
-        users.setVisible(true);
-        usersAccess.setVisible(false);
-        usersRoles.setVisible(false);
-
-        id_usuario.setCellValueFactory(new PropertyValueFactory<>("id_usuario"));
-        nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        correo.setCellValueFactory(new PropertyValueFactory<>("correo"));
-        contrasena.setCellValueFactory(new PropertyValueFactory<>("contrasena"));
-        id_rol.setCellValueFactory(new PropertyValueFactory<>("id_rol"));
-        activo.setCellValueFactory(new PropertyValueFactory<>("activo"));
-        creado_en.setCellValueFactory(new PropertyValueFactory<>("creado_en"));
-        cargarUsuarios();
+    private void cambiarRol(ActionEvent event) {
+        MenuItem item = (MenuItem) event.getSource();
+        role.setText(item.getText());
     }
 
     private void cargarUsuarios() {
         ObservableList<Users> listaUsuarios = FXCollections.observableArrayList();
         String sql = "SELECT * FROM USUARIOS";
 
-        try (Connection conn = conex.dataSource.getConnection();
+        try (Connection conn = Conex.dataSource.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -185,5 +241,24 @@ public class adminController {
 
         // Asigna la lista de usuarios a la TableView
         tableViewUsuarios.setItems(listaUsuarios);
+    }
+
+    private int getIdRolFromText(String rolText) {
+        switch (rolText) {
+            case "Admin":
+                return 1;
+            case "Production Manager":
+                return 3;
+            case "Maintenance Manager":
+                return 4;
+            case "Analyst":
+                return 5;
+            case "Maintenance Technician":
+                return 2;
+            case "Operator":
+                return 6;
+            default:
+                return 1; // o algún valor por defecto
+        }
     }
 }

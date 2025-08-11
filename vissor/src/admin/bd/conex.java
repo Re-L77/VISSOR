@@ -2,67 +2,51 @@ package admin.bd;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import java.sql.*;
 
-public class conex {
+public class Conex {
     public static final HikariDataSource dataSource = crearDataSource();
 
-    public static void main(String[] args) {
-
-        // Insertar un nuevo usuario
-        insertarUsuario("Juan", "juan@example.com", "password123", 1, true);
-        // Mostrar tabla USUARIOS
-        mostrarTabla("USUARIOS");
-        dataSource.close();
-        System.out.println("Finalizado.");
-    }
-
-    private static void insertarUsuario(String nombre, String correo, String contrasena, int idRol, boolean activo) {
-        String sql = "INSERT INTO `USUARIOS` (`id_usuario`, `nombre`, `correo`, `contrasena`, `id_rol`, `activo`) VALUES (?, ?, ?, ?, ?, ?)";
+    public static void insertarUsuario(String nombre, String correo, String contrasena, int id_rol, Boolean activo,
+            String creado_en) {
+        String sql = "INSERT IGNORE INTO `USUARIOS` (`nombre`, `correo`, `contrasena`, `id_rol`, `activo`, `creado_en`) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setInt(1, 0); // id_usuario (auto_increment)
-            pstmt.setString(2, nombre);
-            pstmt.setString(3, correo);
-            pstmt.setString(4, contrasena);
-            pstmt.setInt(5, idRol);
-            pstmt.setBoolean(6, activo);
+            pstmt.setString(1, nombre);
+            pstmt.setString(2, correo);
+            pstmt.setString(3, contrasena);
+            pstmt.setInt(4, id_rol);
+            pstmt.setBoolean(5, activo);
+            pstmt.setString(6, creado_en);
 
             int filas = pstmt.executeUpdate();
-            System.out.println("Insertado usuario: " + nombre + " (" + filas + " fila afectada)");
+            if (filas == 0) {
+                // Tu código para la alerta
+                Alert alert = new Alert(AlertType.ERROR);
+
+                // Configurar el título de la ventana
+                alert.setTitle("ERROR");
+
+                // Configurar el texto del encabezado (lo que aparece en grande)
+                // Puedes dejarlo en null para que solo se muestre el ContentText, o poner un
+                // mensaje más claro
+                alert.setHeaderText(null);
+
+                // Configurar el texto del contenido (el mensaje detallado)
+                alert.setContentText("Datos duplicados: " + "[" + nombre + "] [" + correo + "]");
+
+                // Mostrar la alerta
+                alert.showAndWait();
+            } else {
+                System.out.println("Insertado usuario: " + nombre + " (" + filas + " fila afectada)");
+            }
 
         } catch (SQLException e) {
             System.err.println("Error insertando usuario");
-            e.printStackTrace();
-        }
-    }
-
-    private static void mostrarTabla(String nombreTabla) {
-        String sql = "SELECT * FROM " + nombreTabla;
-        try (Connection conn = dataSource.getConnection();
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(sql)) {
-
-            System.out.println("Contenido de la tabla " + nombreTabla + ":");
-            ResultSetMetaData meta = rs.getMetaData();
-            int columnas = meta.getColumnCount();
-
-            for (int i = 1; i <= columnas; i++) {
-                System.out.print(meta.getColumnName(i) + "\t");
-            }
-            System.out.println();
-
-            while (rs.next()) {
-                for (int i = 1; i <= columnas; i++) {
-                    System.out.print(rs.getString(i) + "\t");
-                }
-                System.out.println();
-            }
-
-        } catch (SQLException e) {
-            System.err.println("Error mostrando tabla " + nombreTabla);
             e.printStackTrace();
         }
     }

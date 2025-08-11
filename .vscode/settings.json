@@ -1,0 +1,19 @@
+{
+  "java.project.referencedLibraries": [
+    "vissor/lib/HikariCP-6.3.1.jar",
+    "vissor/lib/mysql-connector-j-9.4.0.jar",
+    "vissor/lib/slf4j-api-1.7.36.jar",
+    "vissor/lib/slf4j-simple-1.7.36.jar",
+    "vissor/lib/javafx.base.jar",
+    "vissor/lib/javafx.controls.jar",
+    "vissor/lib/javafx.fxml.jar",
+    "vissor/lib/javafx.graphics.jar",
+    "vissor/lib/javafx.media.jar",
+    "vissor/lib/javafx.swing.jar",
+    "vissor/lib/javafx.web.jar",
+    "vissor/lib/javafx-swt.jar",
+    "vissor/lib/jdk.jsobject.jar",
+    "vissor/lib/jfx.incubator.input.jar",
+    "vissor/lib/jfx.incubator.richtext.jar"
+  ]
+}
