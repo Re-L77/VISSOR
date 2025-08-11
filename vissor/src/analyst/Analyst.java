@@ -7,25 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Analyst extends Application {
-    public static Object Analyst;
-
     @Override
-    public void start(Stage primaryStage) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Analyst.fxml"));
-            Parent root = loader.load();
-            primaryStage.setScene(new Scene(root));
-            primaryStage.setTitle("Production Manager");
-            primaryStage.setMinHeight(720);
-            primaryStage.setMinWidth(1080);
-            primaryStage.setResizable(false);
-            primaryStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Analyst.fxml"));
+        primaryStage.setTitle("Dashboard Analista");
+        primaryStage.setScene(new Scene(root, 1080, 720));
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
