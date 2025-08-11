@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import java.sql.Statement;
 
 import admin.bd.Users;
-import admin.bd.conex;
+import admin.bd.Conex;
 import analyst.Analyst;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -219,7 +219,7 @@ public class adminController {
         ObservableList<Users> listaUsuarios = FXCollections.observableArrayList();
         String sql = "SELECT * FROM USUARIOS";
 
-        try (Connection conn = conex.dataSource.getConnection();
+        try (Connection conn = Conex.dataSource.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
 
