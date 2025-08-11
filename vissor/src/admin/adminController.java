@@ -25,6 +25,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -66,7 +68,7 @@ public class adminController {
     private CheckBox active;
 
     @FXML
-    private DatePicker creation;
+    private DatePicker creation_date;
 
     @FXML
     private Button testButton;
@@ -118,16 +120,23 @@ public class adminController {
         String contrasena = this.password.getText();
         int id_rol = getIdRolFromText(this.role.getText());
         Boolean activo = this.active.isSelected();
-        String creado_en = this.creation.getValue().atTime(java.time.LocalTime.now()).toString();
-        System.out.println("Usuario a insertar:");
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Correo: " + correo);
-        System.out.println("Contraseña: " + contrasena);
-        System.out.println("ID Rol: " + id_rol);
-        System.out.println("Activo: " + activo);
-        System.out.println("Creado En: " + creado_en);
-        // Conex.insertarUsuario(nombre, correo, contrasena, id_rol, activo, creado_en);
-        cargarUsuarios(); // Recargar la lista de usuarios después de insertar
+        String creado_en = "";
+        if (this.creation_date.getValue() != null) {
+            java.time.LocalDate fecha = this.creation_date.getValue();
+            java.time.LocalTime hora = java.time.LocalTime.now();
+            creado_en = fecha.toString() + " " + hora.toString();
+        }
+        if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty() || id_rol == -1 || creado_en.isEmpty()) {
+            System.out.println("Por favor, complete todos los campos.");
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, complete todos los campos.");
+            alert.showAndWait();
+        } else {
+            Conex.insertarUsuario(nombre, correo, contrasena, id_rol, activo, creado_en);
+            cargarUsuarios(); // Recargar la lista de usuarios después de insertar
+        }
     }
 
     @FXML
