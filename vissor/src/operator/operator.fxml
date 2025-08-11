@@ -93,6 +93,20 @@
                   <Font name="Segoe UI Italic" size="28.0" />
                </font>
             </Label>
+            <Label layoutX="23.0" layoutY="26.0" text="Machines">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TableView layoutX="24.0" layoutY="110.0" prefHeight="417.0" prefWidth="829.0">
+              <columns>
+                <TableColumn prefWidth="108.0" text="ID_PLC" />
+                <TableColumn prefWidth="97.0" text="MODELO " />
+                  <TableColumn prefWidth="255.0" text="UBICACION" />
+                  <TableColumn prefWidth="243.0" text="IP" />
+                  <TableColumn prefWidth="125.0" text="ACTIVO" />
+              </columns>
+            </TableView>
          </children>
       </Pane>
    <Pane id="userAccess" fx:id="usersAccess" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
