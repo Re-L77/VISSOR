@@ -10,7 +10,6 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import productionManager.bd.conexProduction;
@@ -19,6 +18,9 @@ import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
 import maintenanceTechnician.maintenanceTechnician;
 import operator.operator;
+import productionManager.bd.AccesoSimulado;
+import productionManager.bd.AccesoSimuladoDAO;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class productionManagerController {
     @FXML
@@ -57,6 +59,18 @@ public class productionManagerController {
     private Pane usersAccess;
     @FXML
     private MenuButton filtersMenuButton;
+    @FXML
+    private TableView<AccesoSimulado> tablaAccesosSimulados;
+    @FXML
+    private TableColumn<AccesoSimulado, Integer> colUsuarioAcceso;
+    @FXML
+    private TableColumn<AccesoSimulado, String> colFechaAcceso;
+    @FXML
+    private TableColumn<AccesoSimulado, Integer> colCantidadReportes;
+    @FXML
+    private TextField txtFiltroUsuarioAcceso;
+    @FXML
+    private Button btnFiltrarUsuarioAcceso;
 
     @FXML
     private void filtrarPorGeneradoPor(ActionEvent event) {
@@ -194,6 +208,13 @@ public class productionManagerController {
     }
 
     @FXML
+    private void filtrarUsuarioAcceso(ActionEvent event) {
+        String usuarioText = txtFiltroUsuarioAcceso.getText();
+        ObservableList<AccesoSimulado> lista = AccesoSimuladoDAO.obtenerAccesosSimulados(usuarioText);
+        tablaAccesosSimulados.setItems(lista);
+    }
+
+    @FXML
     public void initialize() {
         // Configurar columnas del TableView principal
         if (colId != null) colId.setCellValueFactory(new PropertyValueFactory<>("idReporte"));
@@ -218,6 +239,12 @@ public class productionManagerController {
             for (MenuItem item : filtersMenuButton.getItems()) {
                 item.setOnAction(this::handleFilterAction);
             }
+        }
+        if (colUsuarioAcceso != null) colUsuarioAcceso.setCellValueFactory(new PropertyValueFactory<>("idUsuario"));
+        if (colFechaAcceso != null) colFechaAcceso.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        if (colCantidadReportes != null) colCantidadReportes.setCellValueFactory(new PropertyValueFactory<>("cantidadReportes"));
+        if (tablaAccesosSimulados != null) {
+            tablaAccesosSimulados.setItems(AccesoSimuladoDAO.obtenerAccesosSimulados(""));
         }
     }
 }

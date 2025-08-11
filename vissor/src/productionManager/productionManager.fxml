@@ -70,66 +70,36 @@
       </Pane>
    <Pane id="user" fx:id="users" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: white;">
          <children>
-            <TableView fx:id="tablaReportes" layoutX="84.0" layoutY="57.0" prefHeight="215.0" prefWidth="728.0" visible="true">
+            <TableView fx:id="tablaReportes" layoutX="51.0" layoutY="55.0" prefHeight="281.0" prefWidth="807.0" visible="true">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="134.66668701171875" text="ID Reporte" />
                 <TableColumn fx:id="colFecha" prefWidth="118.00009155273438" text="Fecha" />
                 <TableColumn fx:id="colEficiencia" prefWidth="135.333251953125" text="Eficiencia (%)" />
-                <TableColumn fx:id="colScrap" prefWidth="140.6666259765625" text="Scrap (%)" />
-                <TableColumn fx:id="colGeneradoPor" prefWidth="198.0" text="Generado por (ID)" />
+                <TableColumn fx:id="colScrap" prefWidth="206.6666259765625" text="Scrap (%)" />
+                <TableColumn fx:id="colGeneradoPor" prefWidth="209.66668701171875" text="Generado por (ID)" />
               </columns>
             </TableView>
-            <Label alignment="CENTER" layoutX="351.0" layoutY="14.0" prefHeight="25.0" prefWidth="198.0" text="Reports" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="351.0" layoutY="14.0" prefHeight="25.0" prefWidth="198.0" text="All Reports" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-                  <TextField fx:id="txtGeneradoPor" layoutX="612.0" layoutY="308.0" prefWidth="200.0" promptText="ID para filtrar" />
-                  <Button fx:id="btnFiltrar" layoutX="471.0" layoutY="308.0" onAction="#filtrarPorGeneradoPor" prefWidth="120.0" text="Aplicar filtro" />
-                  <TableView fx:id="tablaFiltross" layoutX="84.0" layoutY="348.0" prefHeight="200.0" prefWidth="728.0">
-                     <columns>
-                        <TableColumn id="FiltersTable" fx:id="colIdFiltrado" prefWidth="134.66668701171875" text="ID Reporte" />
-                        <TableColumn fx:id="colFechaFiltrado" prefWidth="118.00009155273438" text="Fecha" />
-                        <TableColumn fx:id="colEficienciaFiltrado" prefWidth="135.333251953125" text="Eficiencia (%)" />
-                        <TableColumn fx:id="colScrapFiltrado" prefWidth="140.6666259765625" text="Scrap (%)" />
-                        <TableColumn fx:id="colGeneradoPorFiltrado" prefWidth="198.0" text="Generado por (ID)" />
-                     </columns>
-                  </TableView>
-            <Label alignment="CENTER" layoutX="194.0" layoutY="301.0" text="Filtrar po ID Usuario" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="26.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-   <Pane id="userAccess" fx:id="usersAccess" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
-         <children>
-            <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
+            <Label layoutX="412.0" layoutY="344.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="FilterID USER" />
+            <Button fx:id="btnFiltrar" layoutX="770.0" layoutY="348.0" onAction="#filtrarPorGeneradoPor" prefHeight="25.0" prefWidth="88.0" text="Filtrar" />
+            <TableView fx:id="tablaFiltross" layoutX="51.0" layoutY="377.0" prefHeight="249.0" prefWidth="807.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn fx:id="colIdFiltrado" prefWidth="145.3332977294922" text="ID Report" />
+                  <TableColumn fx:id="colFechaFiltrado" prefWidth="164.66665649414062" text="Date" />
+                  <TableColumn fx:id="colEficienciaFiltrado" prefWidth="126.6666259765625" text="Efficiency (%)" />
+                  <TableColumn fx:id="colScrapFiltrado" prefWidth="150.66656494140625" text="Scrap (%)" />
+                  <TableColumn fx:id="colGeneradoPorFiltrado" prefWidth="220.66668701171875" text="Generated by (ID)" />
                </columns>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
             </TableView>
-            <Label id="userRoles" layoutX="23.0" layoutY="26.0" text="2">
-               <font>
-                  <Font name="Segoe UI Italic" size="28.0" />
-               </font>
-            </Label>
+            <TextField fx:id="txtGeneradoPor" layoutX="563.0" layoutY="347.0" prefWidth="200.0" promptText="ID para filtrar" />
          </children>
       </Pane>
-   <Pane fx:id="usersRoles" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
+   <Pane id="userAccess" fx:id="usersAccess" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: white;" visible="false" />
+   <Pane id="UserRoles" fx:id="usersRoles" layoutX="180.0" layoutY="80.0" prefHeight="640.0" prefWidth="900.0" style="-fx-background-color: #ff9e9e;" visible="false">
          <children>
             <TableView layoutX="21.0" layoutY="87.0" prefHeight="400.0" prefWidth="829.0" visible="false">
                <columns>
