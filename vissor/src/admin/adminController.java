@@ -137,10 +137,6 @@ public class adminController {
         // Aquí puedes implementar la lógica para insertar un nuevo usuario
         // Por ejemplo, abrir un diálogo para ingresar los datos del usuario
         // y luego llamar al método insertarUsuario de la clase Conex.
-<<<<<<< HEAD
-        // Conex.insertarUsuario(nombre, correo, contrasena, id_rol, activo, creado_en);
-        cargarUsuarios(); // Recargar la lista de usuarios después de insertar
-=======
         String nombre = this.name.getText();
         String correo = this.email.getText();
         String contrasena = this.password.getText();
@@ -163,7 +159,6 @@ public class adminController {
             Conex.insertarUsuario(nombre, correo, contrasena, id_rol, activo, creado_en);
             cargarUsuarios(); // Recargar la lista de usuarios después de insertar
         }
->>>>>>> origin/Sofas
     }
 
     @FXML

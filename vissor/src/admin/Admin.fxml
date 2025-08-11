@@ -127,16 +127,11 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-<<<<<<< HEAD
-            <PasswordField fx:id="password" layoutX="624.0" layoutY="78.0" text="." />
-            <MenuButton id="role" fx:id="role" layoutX="81.0" layoutY="127.0" maxHeight="30.0" maxWidth="180.0" minHeight="30.0" minWidth="180.0" mnemonicParsing="false" onAction="#cambiarRol" prefHeight="30.0" prefWidth="180.0" text="Admin" underline="true">
-=======
             <PasswordField fx:id="password" layoutX="114.0" layoutY="150.0" prefHeight="28.0" prefWidth="169.0">
                <font>
                   <Font name="Segoe UI" size="14.0" />
                </font></PasswordField>
             <MenuButton id="role" fx:id="role" layoutX="363.0" layoutY="79.0" maxHeight="30.0" maxWidth="180.0" minHeight="30.0" minWidth="180.0" mnemonicParsing="false" onAction="#cambiarRol" prefHeight="30.0" prefWidth="180.0" text="Admin" underline="true">
->>>>>>> origin/Sofas
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
