@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
@@ -36,12 +37,11 @@ import operator.operator;
 import productionManager.productionManager;
 
 public class adminController {
+    // Recursos y paneles
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private Pane users;
     @FXML
@@ -51,31 +51,29 @@ public class adminController {
     @FXML
     private MenuButton menuButton;
 
-    // insert
+    // Insert
     @FXML
     private TextField name;
-
     @FXML
     private TextField email;
-
     @FXML
     private PasswordField password;
-
     @FXML
     private MenuButton role;
-
     @FXML
     private CheckBox active;
-
     @FXML
     private DatePicker creation_date;
-
     @FXML
     private Button testButton;
+    @FXML
+    private Button deleteButton;
+    @FXML
+    private Button updateButton;
 
+    // Table
     @FXML
     private TableView<Users> tableViewUsuarios;
-
     @FXML
     private TableColumn<Users, Integer> id_usuario;
     @FXML
@@ -90,6 +88,8 @@ public class adminController {
     private TableColumn<Users, String> activo;
     @FXML
     private TableColumn<Users, String> creado_en;
+    @FXML
+    private TableColumn<Users, String> actions;
 
     @FXML
     void initialize() {
@@ -106,7 +106,6 @@ public class adminController {
         id_rol.setCellValueFactory(new PropertyValueFactory<>("id_rol"));
         activo.setCellValueFactory(new PropertyValueFactory<>("activo"));
         creado_en.setCellValueFactory(new PropertyValueFactory<>("creado_en"));
-
         cargarUsuarios();
     }
 
@@ -224,6 +223,7 @@ public class adminController {
         role.setText(item.getText());
     }
 
+    @FXML
     private void cargarUsuarios() {
         ObservableList<Users> listaUsuarios = FXCollections.observableArrayList();
         String sql = "SELECT * FROM USUARIOS";
@@ -252,6 +252,7 @@ public class adminController {
         tableViewUsuarios.setItems(listaUsuarios);
     }
 
+    @FXML
     private int getIdRolFromText(String rolText) {
         switch (rolText) {
             case "Admin":
@@ -268,6 +269,51 @@ public class adminController {
                 return 6;
             default:
                 return 1; // o algún valor por defecto
+        }
+    }
+
+    @FXML
+    private void deleteUser(ActionEvent event) {
+
+        Users selectedUser = tableViewUsuarios.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            // Simula un JOptionPane usando un Alert de JavaFX
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmación de Eliminación");
+            alert.setHeaderText(null);
+            alert.setContentText("¿Estás seguro de que quieres eliminar al usuario: " + "?");
+
+            if (alert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
+                Conex.eliminarUsuario(selectedUser.id_usuarioProperty().get());
+                cargarUsuarios(); // Recargar la lista de usuarios después de eliminar
+            }
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, selecciona un usuario para eliminar.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void updateUser(ActionEvent event) {
+        Users selectedUser = tableViewUsuarios.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            // Aquí puedes abrir un nuevo diálogo o ventana para editar los detalles del
+            // usuario
+            // Por simplicidad, solo mostraremos un mensaje por ahora
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Actualizar Usuario");
+            alert.setHeaderText(null);
+            alert.setContentText("Actualizar usuario: " + selectedUser.nombreProperty().get() + "?");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, selecciona un usuario para actualizar.");
+            alert.showAndWait();
         }
     }
 }
