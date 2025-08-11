@@ -1,6 +1,7 @@
 package productionManager;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 
 import admin.admin;
 import analyst.Analyst;
@@ -12,65 +13,65 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import productionManager.bd.conexProduction;
+import productionManager.bd.ProductionAll;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import maintenanceManager.maintenanceManager;
 import maintenanceTechnician.maintenanceTechnician;
 import operator.operator;
-import productionManager.bd.AccesoSimulado;
-import productionManager.bd.AccesoSimuladoDAO;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class productionManagerController {
     @FXML
-    private TableColumn<conexProduction, Integer> colIdFiltrado;
+    private TableColumn<ProductionAll.conexProduction, Integer> colIdFiltrado;
     @FXML
-    private TableColumn<conexProduction, String> colFechaFiltrado;
+    private TableColumn<ProductionAll.conexProduction, String> colFechaFiltrado;
     @FXML
-    private TableColumn<conexProduction, Double> colEficienciaFiltrado;
+    private TableColumn<ProductionAll.conexProduction, Double> colEficienciaFiltrado;
     @FXML
     private Pane users;
     @FXML
-    private TableView<conexProduction> tablaReportes;
+    private TableView<ProductionAll.conexProduction> tablaReportes;
     @FXML
-    private TableColumn<conexProduction, Integer> colId;
+    private TableColumn<ProductionAll.conexProduction, Integer> colId;
     @FXML
-    private TableColumn<conexProduction, String> colFecha;
+    private TableColumn<ProductionAll.conexProduction, String> colFecha;
     @FXML
-    private TableColumn<conexProduction, Double> colEficiencia;
+    private TableColumn<ProductionAll.conexProduction, Double> colEficiencia;
     @FXML
-    private TableColumn<conexProduction, Double> colScrap;
+    private TableColumn<ProductionAll.conexProduction, Double> colScrap;
     @FXML
-    private TableColumn<conexProduction, Integer> colGeneradoPor;
+    private TableColumn<ProductionAll.conexProduction, Integer> colGeneradoPor;
     @FXML
     private TextField txtGeneradoPor;
     @FXML
     private Button btnFiltrar;
     @FXML
-    private TableView<conexProduction> tablaFiltross;
+    private TableView<ProductionAll.conexProduction> tablaFiltross;
     @FXML
-    private TableColumn<conexProduction, Double> colScrapFiltrado;
+    private TableColumn<ProductionAll.conexProduction, Double> colScrapFiltrado;
     @FXML
-    private TableColumn<conexProduction, Integer> colGeneradoPorFiltrado;
-    @FXML
-    private Pane usersRoles;
+    private TableColumn<ProductionAll.conexProduction, Integer> colGeneradoPorFiltrado;
     @FXML
     private Pane usersAccess;
     @FXML
     private MenuButton filtersMenuButton;
     @FXML
-    private TableView<AccesoSimulado> tablaAccesosSimulados;
+    private TableView<ProductionAll.AccesoSimulado> tablaAccesosSimulados;
     @FXML
-    private TableColumn<AccesoSimulado, Integer> colUsuarioAcceso;
+    private TableColumn<ProductionAll.AccesoSimulado, Integer> colUsuarioAcceso;
     @FXML
-    private TableColumn<AccesoSimulado, String> colFechaAcceso;
+    private TableColumn<ProductionAll.AccesoSimulado, String> colFechaAcceso;
     @FXML
-    private TableColumn<AccesoSimulado, Integer> colCantidadReportes;
+    private TableColumn<ProductionAll.AccesoSimulado, Integer> colCantidadReportes;
     @FXML
     private TextField txtFiltroUsuarioAcceso;
     @FXML
     private Button btnFiltrarUsuarioAcceso;
+    @FXML
+    private DatePicker fechaFiltroAcces;
+    @FXML
+    private Button btnFiltrarAcces;
 
     @FXML
     private void filtrarPorGeneradoPor(ActionEvent event) {
@@ -81,7 +82,7 @@ public class productionManagerController {
         }
         try {
             int id = Integer.parseInt(idText);
-            ObservableList<conexProduction> filteredList = conexProduction.obtenerReportesPorGeneradoPor(id);
+            ObservableList<ProductionAll.conexProduction> filteredList = ProductionAll.obtenerReportesPorGeneradoPor(id);
             tablaFiltross.setItems(filteredList);
         } catch (NumberFormatException e) {
             tablaFiltross.setItems(FXCollections.observableArrayList());
@@ -92,7 +93,6 @@ public class productionManagerController {
     private void mostrarUsers(ActionEvent event) {
         // Oculta todos los paneles
         users.setVisible(false);
-        usersRoles.setVisible(false);
         usersAccess.setVisible(false);
 
         // Y luego muestra el que te interesa
@@ -100,22 +100,10 @@ public class productionManagerController {
     }
 
     @FXML
-    private void mostrarUsersRoles(ActionEvent event) {
-        // Oculta todos los paneles
-        users.setVisible(false);
-        usersRoles.setVisible(false);
-        usersAccess.setVisible(false);
-
-        // Y luego muestra el que te interesa
-        usersRoles.setVisible(true);
-    }
-
-    @FXML
     private void mostrarUsersAccess(ActionEvent event) {
         // Oculta todos los paneles
         users.setVisible(false);
         usersAccess.setVisible(false);
-        usersRoles.setVisible(false);
 
         // Y luego muestra el que te interesa
         usersAccess.setVisible(true);
@@ -168,29 +156,29 @@ public class productionManagerController {
         if (event.getSource() instanceof MenuItem) {
             MenuItem item = (MenuItem) event.getSource();
             String filter = item.getText();
-            ObservableList<conexProduction> originalList = conexProduction.obtenerReportesProduccion();
-            ObservableList<conexProduction> filteredList = FXCollections.observableArrayList();
+            ObservableList<ProductionAll.conexProduction> originalList = ProductionAll.obtenerReportesProduccion();
+            ObservableList<ProductionAll.conexProduction> filteredList = FXCollections.observableArrayList();
             switch (filter) {
                 case "Eficiencia > 80%":
                 case "Eficiencia &gt; 80%":
-                    for (conexProduction r : originalList) {
+                    for (ProductionAll.conexProduction r : originalList) {
                         if (r.getEficiencia() > 80.0) filteredList.add(r);
                     }
                     break;
                 case "Eficiencia < 80%":
                 case "Eficiencia &lt; 80%":
-                    for (conexProduction r : originalList) {
+                    for (ProductionAll.conexProduction r : originalList) {
                         if (r.getEficiencia() < 80.0) filteredList.add(r);
                     }
                     break;
                 case "Scrap < 10%":
                 case "Scrap &lt; 10%":
-                    for (conexProduction r : originalList) {
+                    for (ProductionAll.conexProduction r : originalList) {
                         if (r.getScrap() < 10.0) filteredList.add(r);
                     }
                     break;
                 case "Generado por ID = 1":
-                    for (conexProduction r : originalList) {
+                    for (ProductionAll.conexProduction r : originalList) {
                         if (r.getGeneradoPor() == 1) filteredList.add(r);
                     }
                     break;
@@ -210,8 +198,19 @@ public class productionManagerController {
     @FXML
     private void filtrarUsuarioAcceso(ActionEvent event) {
         String usuarioText = txtFiltroUsuarioAcceso.getText();
-        ObservableList<AccesoSimulado> lista = AccesoSimuladoDAO.obtenerAccesosSimulados(usuarioText);
+        ObservableList<ProductionAll.AccesoSimulado> lista = ProductionAll.obtenerAccesosSimulados(usuarioText);
         tablaAccesosSimulados.setItems(lista);
+    }
+
+    @FXML
+    private void filtrarPorFechaAcces(ActionEvent event) {
+        if (fechaFiltroAcces.getValue() == null) {
+            tablaFiltross.setItems(FXCollections.observableArrayList());
+            return;
+        }
+        String fecha = fechaFiltroAcces.getValue().toString();
+        ObservableList<ProductionAll.conexProduction> lista = ProductionAll.obtenerReportesPorFecha(fecha);
+        tablaFiltross.setItems(lista);
     }
 
     @FXML
@@ -222,17 +221,16 @@ public class productionManagerController {
         if (colEficiencia != null) colEficiencia.setCellValueFactory(new PropertyValueFactory<>("eficiencia"));
         if (colScrap != null) colScrap.setCellValueFactory(new PropertyValueFactory<>("scrap"));
         if (colGeneradoPor != null) colGeneradoPor.setCellValueFactory(new PropertyValueFactory<>("generadoPor"));
-
-        // Configurar columnas de la tabla filtrada
         if (colIdFiltrado != null) colIdFiltrado.setCellValueFactory(new PropertyValueFactory<>("idReporte"));
         if (colFechaFiltrado != null) colFechaFiltrado.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         if (colEficienciaFiltrado != null) colEficienciaFiltrado.setCellValueFactory(new PropertyValueFactory<>("eficiencia"));
         if (colScrapFiltrado != null) colScrapFiltrado.setCellValueFactory(new PropertyValueFactory<>("scrap"));
         if (colGeneradoPorFiltrado != null) colGeneradoPorFiltrado.setCellValueFactory(new PropertyValueFactory<>("generadoPor"));
-
-        // Llenar la tabla principal con todos los datos al iniciar
         if (tablaReportes != null) {
-            tablaReportes.setItems(conexProduction.obtenerReportesProduccion());
+            tablaReportes.setItems(ProductionAll.obtenerReportesProduccion());
+        }
+        if (tablaAccesosSimulados != null) {
+            tablaAccesosSimulados.setItems(ProductionAll.obtenerAccesosSimulados(""));
         }
         // Asignar eventos a los filtros si existen
         if (filtersMenuButton != null) {
@@ -244,7 +242,10 @@ public class productionManagerController {
         if (colFechaAcceso != null) colFechaAcceso.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         if (colCantidadReportes != null) colCantidadReportes.setCellValueFactory(new PropertyValueFactory<>("cantidadReportes"));
         if (tablaAccesosSimulados != null) {
-            tablaAccesosSimulados.setItems(AccesoSimuladoDAO.obtenerAccesosSimulados(""));
+            tablaAccesosSimulados.setItems(ProductionAll.obtenerAccesosSimulados(""));
+        }
+        if (btnFiltrarAcces != null) {
+            btnFiltrarAcces.setOnAction(this::filtrarPorFechaAcces);
         }
     }
 }
